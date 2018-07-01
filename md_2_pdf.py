@@ -25,7 +25,7 @@ def convert(basic_path):
         print(f"[+] MD name: {file}")
         print(f"[+] PDF name: {pdf_file_name}")
         print(f"[+] Converting...")
-        md2pdf(os.path.join(path, pdf_file_name),  md_file_path=os.path.join(path, file))
+        md2pdf(os.path.join(path, pdf_file_name), md_file_path=os.path.join(path, file), base_url=path)
 
     print("[+] Convert finished")
 

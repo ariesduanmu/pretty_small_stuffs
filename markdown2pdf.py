@@ -25,13 +25,13 @@ def convert(md_path, output_pdf_file="output.pdf"):
 
 def convert_mdfile(md_file, output_pdf_file):
     print(f"[+] MD name: {md_file}")
-    print(f"[+] PDF name: {pdf_file}")
+    print(f"[+] PDF name: {output_pdf_file}")
     print(f"[+] Converting...")
     md2pdf(output_pdf_file, md_file_path=md_file)
 
     print("[+] Convert finished")
 
-def merge_pdf(basic_path, output_pdf_file):
+def merge(basic_path, output_pdf_file):
     pdf_files = target_files(basic_path, ".pdf")
     merger = PdfFileMerger()
     for file in pdf_files:
@@ -70,7 +70,7 @@ python prng_stego.py --decrypt --password password --magic magic new_test.png
 
     if args.convert ^ args.merge == False:
         parser.error('Incorrect convert/decrypt mode')
-    if args.convert and (args.mdirectory is None or args.markdown is None):
+    if args.convert and (args.mdirectory is None and args.markdown is None):
         parser.error('Require -D <markdown file> or -M <directory with markdown files in it> in convert mode')
     if args.merge and args.pdirectory is None:
         parser.error('Require -d <directory with pdf files in it> in merge mode')

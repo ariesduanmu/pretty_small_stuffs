@@ -17,7 +17,6 @@ def target_files(basic_path, file_format):
                 files.append([path, file])
     return files
 
-
 def convert(basic_path):
     md_files = target_files(basic_path, ".md")
     for path, file in md_files:

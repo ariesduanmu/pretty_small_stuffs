@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 #! /usr/bin/env python
-
 import os
 import sys
 import argparse
 from md2pdf import md2pdf
 from PyPDF2 import PdfFileReader, PdfFileMerger
+
 
 def target_files(basic_path, file_format):
     return sorted(name for name in os.listdir(basic_path) \
@@ -46,7 +46,6 @@ def parse_options():
 '''
 Examples:
 python markdown2pdf.py -e test.png -t howareyou
-
 '''
 
                                         )
@@ -76,3 +75,4 @@ if __name__ == "__main__":
             convert(args.markdown, args.output)
     elif args.merge:
         merge(args.pdirectory, args.output)
+

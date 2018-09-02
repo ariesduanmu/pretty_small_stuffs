@@ -47,14 +47,16 @@ def customFont(font_path, size):
 
 def draw_content(self, image, base_img_width, side_space, text_start_y, content, contentFont):
     '''
-    return image after written(draw)
+    Args:
+        image: Image object
+        base_img_width: width of the base image
+        side_space: padding on two sides of x 
+        text_start_y: y postion of the first line
+        contentFont: text font 
+        content: content to write(draw)
 
-    image: Image object
-    base_img_width: width of the base image
-    side_space: padding on two sides of x 
-    text_start_y: y postion of the first line
-    contentFont: text font 
-    content: content to write(draw)
+    Returns:
+        image after written(draw)
 
     '''
     draw = ImageDraw.Draw(image)
@@ -91,18 +93,21 @@ def contents_lines(content, content_width):
 
 def draw_text(draw, base_img_width, top_left, side_space, padding, color, font, content, align="left"):
     '''
-    return the y position of next line
+    Args:
     
-    draw:ImageDraw object 
-    base_img_width: width of the base image 
-    top_left: the corridinate of x and y for the first letter
-    side_space: padding on two sides of x 
-    padding: padding on two sides of y
-    color: text color 
-    font: text font 
-    content: content to write(draw) 
+        draw:ImageDraw object 
+        base_img_width: width of the base image 
+        top_left: the corridinate of x and y for the first letter
+        side_space: padding on two sides of x 
+        padding: padding on two sides of y
+        color: text color 
+        font: text font 
+        content: content to write(draw) 
 
-    align:default is left
+        align:default is left
+
+    Returns:
+        y position of next line
     '''
     if align == "right":
         width,height = draw.textsize(content, font=font)

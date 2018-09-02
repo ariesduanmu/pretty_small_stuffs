@@ -46,15 +46,6 @@ def parse_options():
 '''
 Examples:
 python markdown2pdf.py -e test.png -t howareyou
-python prng_stego.py -e -r new test.png howareyou
-python prng_stego.py -e -p password -m magic test.png -t howareyou
-python prng_stego.py -e -p password -m magic test.png -t file_test.txt
-python prng_stego.py --encrypt --password password --magic magic test.png -t "howareyou  some other text"
-
-python prng_stego.py -d new_test.png
-python prng_stego.py -d --rsa private.pem new_test.png
-python prng_stego.py -d -p password -m magic new_test.png
-python prng_stego.py --decrypt --password password --magic magic new_test.png
 
 '''
 

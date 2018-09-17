@@ -2,7 +2,8 @@
 # @Author: Li Qin
 # @Date:   2018-09-14 11:07:32
 # @Last Modified by:   Li Qin
-# @Last Modified time: 2018-09-14 14:10:20
+# @Last Modified time: 2018-09-17 10:25:55
+import re
 import pinyin
 import pandas as pd
 
@@ -35,5 +36,9 @@ def ccharacter_2_pinyin(ccharacter):
 
 def main(xls_file, sheet_number, column_name):
     infos = parse_xls(xls_file, sheet_number, column_name)
-    return [[info, ccharacter_2_pinyin(info)] for info in infos]
-
+    result = []
+    for info in infos:
+        filtrate = re.compile(u'[^\u4E00-\u9FA5]')#过滤非中文
+        filtered_info = filtrate.sub(r'', info)
+        result.append([filtered_info, ccharacter_2_pinyin(filtered_info)])
+    return result
